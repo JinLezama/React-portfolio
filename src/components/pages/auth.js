@@ -18,6 +18,7 @@ export default class Auth extends Component {
   handleUnsuccessfulAuth() {
     this.props.handleUnsuccessfulLogin();
   }
+
   render() {
     return (
       <div className="auth-page-wrapper">
@@ -30,8 +31,8 @@ export default class Auth extends Component {
 
         <div className="right-column">
           <Login
-          handleSuccessfulAuth={this.handleSuccessfulAuth}
-          handleUnsuccessfulAuth={this.handleUnsuccessfulAuth}   
+            handleSuccessfulAuth={this.handleSuccessfulAuth}
+            handleUnsuccessfulAuth={this.handleUnsuccessfulAuth}
           />
         </div>
       </div>
