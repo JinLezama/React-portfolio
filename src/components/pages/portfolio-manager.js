@@ -12,18 +12,20 @@ export default class PortfolioManager extends Component {
       portfolioItems: []
     };
 
-    this.handleSuccessfulFormSubmission = this.handleSuccessfulFormSubmission.bind(this)
-    this.handleFormSubmissionError = this.handleFormSubmissionError.bind(this)
+    this.handleSuccessfulFormSubmission = this.handleSuccessfulFormSubmission.bind(
+      this
+    );
+    this.handleFormSubmissionError = this.handleFormSubmissionError.bind(this);
   }
 
   handleSuccessfulFormSubmission(portfolioItem) {
     // TODO
-    // update the portfolio items state
-    // and add the portfolio to the list
+    // update the portfolioItems state
+    // and add the portfolioItem to the list
   }
 
   handleFormSubmissionError(error) {
-
+    console.log("handleFormSubmissionError error", error);
   }
 
   getPortfolioItems() {
@@ -49,16 +51,16 @@ export default class PortfolioManager extends Component {
     return (
       <div className="portfolio-manager-wrapper">
         <div className="left-column">
-          <PortfolioForm 
-          handleSuccessfulFormSubmission={this.handleSuccessfulFormSubmission}
-          handleFormSubmissionError={this.handleFormSubmissionError}
-            />
+          <PortfolioForm
+            handleSuccessfulFormSubmission={this.handleSuccessfulFormSubmission}
+            handleFormSubmissionError={this.handleFormSubmissionError}
+          />
         </div>
 
         <div className="right-column">
           <PortfolioSidebarList data={this.state.portfolioItems} />
         </div>
       </div>
-    );
+    )
   }
 }
