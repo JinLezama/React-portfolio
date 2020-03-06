@@ -12,6 +12,9 @@ export default class BlogDetail extends Component {
         axios.get(`https://jinlezama.devcamp.space/portfolio/portfolio_blogs/${this.state.currentId}`
         ).then(response =>{
             console.log("response", response);
+            this.setState({
+                blogItem: response.data.portfolio_blog
+            })
         }).catch(error => {
             console.log("getBlogItem", error)
         })
@@ -20,10 +23,17 @@ export default class BlogDetail extends Component {
         this.getBlogItem();
     }
     render() {
-        console.log('currentId', this.state.currentId)
+        const{
+            title,
+            content,
+            featured_image_url,
+            blog_status
+        } = this.state.blogItem;
         return (
             <div>
-                <h1>blog detail</h1>
+                <h1>{title}</h1>
+                <img src={featured_image_url} />
+                <div>{content}</div>
             </div>
         )
     }
