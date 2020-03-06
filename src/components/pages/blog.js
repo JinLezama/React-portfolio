@@ -17,13 +17,15 @@ class Blog extends Component {
 
   activateInfiniteScroll() {
     window.onscroll = () => {
-      console.log("onscroll");
-    }
+      if (window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight) {
+        console.log("get more posts");
+      }
+    };
   }
 
   getBlogItems() {
     axios
-      .get("https://jordan.devcamp.space/portfolio/portfolio_blogs", {
+      .get("https://jinlezama.devcamp.space/portfolio/portfolio_blogs", {
         withCredentials: true
       })
       .then(response => {
